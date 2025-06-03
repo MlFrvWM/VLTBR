@@ -1,32 +1,4 @@
-local source = game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library", true)
-
-if not source or source == "" then
-    warn("Erro: source vazio ou nulo")
-    return
-end
-
-print("Conteúdo carregado com sucesso")
-
-local func, err = loadstring(source)
-
-if not func then
-    warn("Falha ao compilar a library: " .. tostring(err))
-    print("Conteúdo recebido:\n" .. source)
-    return
-end
-
-if type(func) ~= "function" then
-    warn("Erro: loadstring retornou tipo inesperado: " .. typeof(func))
-    return
-end
-
-local success, library = pcall(func)
-if not success then
-    warn("Erro ao executar a library: " .. tostring(library))
-    return
-end
-
-print("Library carregada com sucesso")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library", true)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
