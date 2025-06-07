@@ -1,4 +1,11 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library", true)
+local source = game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library", true)
+local func = loadstring(source)
+
+if typeof(func) ~= "function" then
+    error("Failed to load library: returned value is not a function")
+end
+
+local library = func()
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
